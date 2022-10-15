@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "tailwindcss -i ./dist/style.css -o ./dist/main.css --watch && webpack --watch"
+  },
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "normalize.css": "^8.0.1",
+    "uuid": "^9.0.0",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8",
+    "webpack-cli": "^4.10.0"
+  }
+}
