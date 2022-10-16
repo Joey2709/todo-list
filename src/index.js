@@ -98,7 +98,8 @@ function createTask() {
 }
 
 function renderAllTasks() {
-  renderTaks(get_all_task_local_storage());
+  let data = get_all_task_local_storage();
+  renderTaks(data);
 }
 
 function taskfilterCreated() {
