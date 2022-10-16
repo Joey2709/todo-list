@@ -21,6 +21,9 @@ var editButtonModal = document.getElementById("edit");
 var nameUpdateModal = document.getElementById("name-update");
 
 let data = get_all_task_local_storage();
+if (data == null) {
+  data = [];
+}
 renderAllTasks();
 
 submitButton.addEventListener("click", createTask);
@@ -41,6 +44,7 @@ function createTask() {
   }
 
   const newTask = new Task(nameInput.value);
+  console.log(data);
   create_task_local_storage(newTask, data);
 
   const taskContainer = document.createElement("div");
@@ -63,7 +67,6 @@ function createTask() {
 
   let id = newTask.getID();
   let dateCreated = newTask.getDateCreated();
-  let auxvar = "Created";
   nameTaskText.textContent = nameInput.value;
   createTaskText.innerHTML = `<span class="status-created">Created</span> ${format(
     dateCreated,
@@ -119,8 +122,11 @@ function taskFilterUpdated() {
   renderTaks(dataFiltered);
 }
 
-function renderTaks(alldata) {
-  alldata.forEach((e) => {
+function renderTaks(allData) {
+  if (allData == null) {
+    return;
+  }
+  allData.forEach((e) => {
     const taskContainer = document.createElement("div");
     const textTaskContainer = document.createElement("div");
     const buttonTaskContainer = document.createElement("div");
@@ -149,14 +155,14 @@ function renderTaks(alldata) {
 
     deleteTaskButton.textContent = "Delete Task";
     deleteTaskButton.onclick = function () {
-      delete_task_local_storage(id, data);
+      delete_task_local_storage(id, allData);
       tasks.removeChild(taskContainer);
     };
 
     updateTaskButton.textContent = "Update Task";
     updateTaskButton.onclick = function () {
       onModal();
-      let getValues = data.find((a) => a.id == id);
+      let getValues = allData.find((a) => a.id == id);
       nameUpdateModal.value = getValues.name;
       editButtonModal.onclick = function () {
         nameTaskText.textContent = nameUpdateModal.value;
@@ -164,7 +170,7 @@ function renderTaks(alldata) {
           new Date(),
           "LLL dd, yyyy, hh:mm bbbb"
         )}`;
-        update_task_local_storage(id, nameUpdateModal.value, data);
+        update_task_local_storage(id, nameUpdateModal.value, allData);
         offModal();
       };
     };

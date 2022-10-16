@@ -11,5 +11,19 @@
   "devDependencies": {
     "tailwindcss": "^3.1.8",
     "webpack-cli": "^4.10.0"
-  }
+  },
+  "name": "todo-list",
+  "description": "",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joey2709/todo-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joey2709/todo-list/issues"
+  },
+  "homepage": "https://github.com/Joey2709/todo-list#readme"
 }
