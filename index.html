@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="flex flex-col items-center p-[20px] w-full h-full">
+      <div
+        class="controls flex flex-col justify-center items-center w-full h-2/5"
+      >
+        <h1 class="flex flex-col items-center text-center w-full">Todo-list</h1>
+        <div class="input-text">
+          <label for="name">Name: </label>
+          <input type="text" id="name" />
+        </div>
+        <div class="buttons flex items-center justify-center flex-wrap w-full">
+          <p>
+            <button type="button" id="submit">Submit</button>
+          </p>
+          <p>
+            <button type="button" id="delete-all">Delete All</button>
+          </p>
+          <p>
+            <button type="button" id="all-tasks">All tasks</button>
+          </p>
+          <p>
+            <button type="button" id="filter-update">
+              Filter tasks updated
+            </button>
+          </p>
+          <p>
+            <button type="button" id="filter-create">
+              Filter tasks created
+            </button>
+          </p>
+        </div>
+      </div>
+      <div id="task"></div>
+      <div class="modal-container">
+        <div class="modal">
+          <p>
+            <label for="name-update">Name: </label>
+            <input type="text" id="name-update" />
+          </p>
+          <p>
+            <button type="button" id="edit">edit</button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
